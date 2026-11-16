@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IdCardScreen extends StatefulWidget {
   const IdCardScreen({super.key});
@@ -7,11 +8,24 @@ class IdCardScreen extends StatefulWidget {
 }
 
 class _IdCardScreenState extends State<IdCardScreen> {
-  String name = 'संजय देसाई';
+  String name = '';
   String mobile = '98XXXXXX00';
   String village = 'सावंतवाडी';
   String memberId = 'RDP-2026-0001';
   String post = 'सदस्य';
+
+@override
+void initState() {
+  super.initState();
+  _loadName();
+}
+
+Future<void> _loadName() async {
+  final prefs = await SharedPreferences.getInstance();
+  setState(() {
+    name = prefs.getString('name') ?? '';
+  });
+}
 
   void _edit() {
     final n = TextEditingController(text: name);
