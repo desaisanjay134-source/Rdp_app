@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'id_card_screen.dart';
 
 void main() {
   runApp(const RDPApp());
