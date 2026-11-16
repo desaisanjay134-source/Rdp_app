@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'id_card_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const RDPApp());
@@ -386,8 +387,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
             ),
             const SizedBox(height: 18),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 if (_formKey.currentState!.validate()) {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setString('name', _nameController.text.trim());
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('नोंदणीची माहिती जतन केली.'),
