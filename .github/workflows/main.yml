@@ -15,6 +15,9 @@ jobs:
           channel: stable
       - run: flutter create . --project-name rdp_app --org com.example
       - run: flutter pub get
+      - name: Fix NDK
+        run: |
+          sed -i '/ndkVersion/d' android/app/build.gradle.kts
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
         with:
