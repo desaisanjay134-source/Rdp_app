@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (_) => const IdCardPage(),
+      builder: (_) => const IdCardScreen(),
     ),
   );
 },
