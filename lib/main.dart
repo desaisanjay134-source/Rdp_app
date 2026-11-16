@@ -342,11 +342,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
+final _mobileController = TextEditingController();
+final _villageController = TextEditingController();
 
   @override
   void dispose() {
     _nameController.dispose();
     _phoneController.dispose();
+_mobileController.dispose();
+_villageController.dispose();
     super.dispose();
   }
 
