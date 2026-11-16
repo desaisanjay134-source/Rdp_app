@@ -157,12 +157,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.credit_card,
                 'माझं ID कार्ड',
                 'डिजिटल आयडी पहा',
-                () => _openPage(
-                  'माझं ID कार्ड',
-                  'तुमचे डिजिटल सदस्य ओळखपत्र येथे दिसेल.',
-                  Icons.credit_card,
-                ),
-              ),
+                () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => const IdCardPage(),
+    ),
+  );
+},
+),
               menuCard(
                 Colors.green,
                 Icons.person_add,
