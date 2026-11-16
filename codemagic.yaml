@@ -1,15 +1,18 @@
+
 workflows:
   android-workflow:
-    name: Android Build
-    max_build_duration: 120
-    instance_type: 
+    name: Android
+    instance_type: linux
+    max_build_duration: 60
     environment:
       flutter: stable
-      java: 17
     scripts:
+      - name: Create Android folder
+        script: |
+          flutter create . --platforms=android --org=com.sanjay.rdpapp --project-name=rdp_app || true
       - name: Get Flutter packages
         script: |
-          flutter pub get
+          flutter packages pub get
       - name: Build APK
         script: |
           flutter build apk --release
