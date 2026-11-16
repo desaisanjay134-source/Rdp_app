@@ -391,6 +391,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 if (_formKey.currentState!.validate()) {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setString('name', _nameController.text.trim());
+await prefs.setString('mobile', _mobileController.text.trim());
+await prefs.setString('village', _villageController.text.trim());
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('नोंदणीची माहिती जतन केली.'),
