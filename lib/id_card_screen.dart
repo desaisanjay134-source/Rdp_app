@@ -23,7 +23,7 @@ void initState() {
 Future<void> _loadName() async {
   final prefs = await SharedPreferences.getInstance();
   setState(() {
-    name = prefs.getString('name') ?? '';
+    name = prefs.getString('name')?? '';
   });
 }
 
