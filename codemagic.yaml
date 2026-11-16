@@ -4,12 +4,12 @@ workflows:
     name: Android
     instance_type: mac_mini_m1
     max_build_duration: 60
-     environment:
+    environment:
       flutter: stable
     scripts:
       - name: Create Android folder
         script: |
-          flutter create . --platforms=android --org=com.sanjay.rdpapp --project-name=rdp_app || true
+          flutter create . --platforms=android
       - name: Get Flutter packages
         script: |
           flutter packages pub get
